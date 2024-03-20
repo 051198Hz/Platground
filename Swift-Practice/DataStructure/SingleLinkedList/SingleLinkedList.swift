@@ -63,17 +63,15 @@ class SingleLinkedList<T>{
             return removeNode
         }
         
-        if let head = self.head{
-            var tail = head
-            while(tail.nextNode?.nextNode != nil){
-                tail = tail.nextNode!
-            }
-            var removeNode = tail.nextNode
-            tail.nextNode = tail.nextNode?.nextNode
-            return removeNode
+        var currentNode = self.head
+        while(currentNode?.nextNode?.nextNode != nil){
+            if currentNode?.nextNode == nil {break}
+            currentNode = currentNode?.nextNode
         }
-        return nil
-    }
+        var removedNode = currentNode?.nextNode
+        currentNode?.nextNode = nil
+        return removedNode
+        }
     //리스트의 특정위치의 노드 제거
     @discardableResult
     func removeNodeAt(_ idx: Int)->Node<T>?{
