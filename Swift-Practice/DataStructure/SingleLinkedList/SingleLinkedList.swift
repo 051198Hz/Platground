@@ -44,5 +44,21 @@ class SingleLinkedList<T>{
         }
         return nil
     }
+    //리스트의 특정위치의 노드 제거
+    @discardableResult
+    func removeNodeAt(_ idx: Int)->Node<T>?{
+        if self.head == nil{
+            print("List is empty")
+            return nil
+        }
+        var currentNode = self.head
+        for _ in 0..<idx-1{
+            if currentNode?.nextNode?.nextNode == nil {break}
+            currentNode = currentNode?.nextNode
+        }
+        let removeNode = currentNode?.nextNode
+        currentNode?.nextNode = currentNode?.nextNode?.nextNode
+        return removeNode
+    }
     
 }
