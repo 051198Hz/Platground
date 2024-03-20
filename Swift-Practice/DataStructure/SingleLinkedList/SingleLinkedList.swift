@@ -88,5 +88,12 @@ class SingleLinkedList<T>{
         currentNode?.nextNode = currentNode?.nextNode?.nextNode
         return removeNode
     }
+    func printAllNode(){
+        var currentNode = self.head
+        while(currentNode != nil){
+            print(currentNode?.data)
+            currentNode = currentNode?.nextNode
+        }
+    }
     
 }
