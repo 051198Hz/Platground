@@ -7,6 +7,30 @@
 
 class SingleLinkedList<T>{
     var head: Node<T>?
+    ///리스트의 특정 위치의 노드 반환
+    func getNodeAt(_ idx: Int)->Node<T>?{
+        if self.head == nil {return nil}
+        var currentNode = head
+        for _ in 0..<idx{
+            if currentNode == nil {return nil}
+            currentNode = currentNode?.nextNode
+        }
+        return currentNode
+    }
+    ///리스트의 첫 위치의 노드 반환
+    func getNodeAtFirst()->Node<T>?{
+        if self.head == nil{return nil}
+        return self.head
+    }
+    ///리스트 마지막 위치의 노드 반환
+    func getLastNode()->Node<T>?{
+        if self.head == nil{return nil}
+        var currentNode = self.head
+        while(currentNode != nil){
+            currentNode = currentNode?.nextNode
+        }
+        return currentNode
+    }
     ///리스트의 처음에 노드 추가
     @discardableResult
     func insertNodeAtFirst(_ newNode: Node<T>, _ idx: Int)->Node<T>?{
