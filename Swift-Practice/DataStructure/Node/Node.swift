@@ -15,3 +15,11 @@ class Node<T>{
         
     }
 }
+
+class TwoWayNode<T>: Node<T>{
+    var prevNode: Node<T>?
+    init(prevNode: Node<T>? = nil, data: T? = nil, nextNode: Node<T>? = nil) {
+        super.init(data: data, nextNode: nextNode)
+        self.prevNode = prevNode
+    }
+}
