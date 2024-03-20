@@ -49,6 +49,13 @@ class SingleLinkedList<T>{
         }
         return newNode
     }
+    ///리스트의 첫 노드 제거
+    @discardableResult
+    func removeFirst()->Node<T>?{
+        if self.head == nil{return nil}
+        self.head = self.head?.nextNode
+        return head
+    }
     ///리스트 마지막 노드 제거
     @discardableResult
     func removeLastNode()->Node<T>?{
