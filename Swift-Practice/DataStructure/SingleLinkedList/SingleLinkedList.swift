@@ -8,6 +8,7 @@
 class SingleLinkedList<T>{
     var head: Node<T>?
     ///리스트 마지막에 노드 추가
+    @discardableResult
     func appendNode(_ newNode: Node<T>)->Node<T>{
         if let head = self.head{
             var tail = head
