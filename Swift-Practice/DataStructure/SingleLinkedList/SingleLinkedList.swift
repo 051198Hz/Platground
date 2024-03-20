@@ -20,4 +20,28 @@ class SingleLinkedList<T>{
         }
         return newNode
     }
+    ///노드 제거
+    func removeLastNode()->Node<T>?{
+        if self.head == nil{
+            print("List is empty")
+            return nil
+        }
+        
+        if self.head?.nextNode == nil {
+            var removeNode = self.head
+            self.head = nil
+            return removeNode
+        }
+        
+        if let head = self.head{
+            var tail = head
+            while(tail.nextNode?.nextNode != nil){
+                tail = tail.nextNode!
+            }
+            var removeNode = tail.nextNode
+            tail.nextNode = tail.nextNode?.nextNode
+            return removeNode
+        }
+        return nil
+    }
 }
