@@ -22,6 +22,7 @@ class SingleLinkedList<T>{
         return newNode
     }
     ///리스트 마지막 노드 제거
+    @discardableResult
     func removeLastNode()->Node<T>?{
         if self.head == nil{
             print("List is empty")
