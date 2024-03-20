@@ -21,7 +21,19 @@ class SingleLinkedList<T>{
     ///리스트의 중간에 노드 추가
     @discardableResult
     func insertNodeAt(_ newNode: Node<T>, _ idx: Int)->Node<T>?{
-        return nil
+        if self.head == nil{
+            self.head = newNode
+            return newNode
+        }
+        var currentNode = head
+        for _ in 0..<(idx-1){
+            if currentNode == nil {return nil}
+            currentNode = currentNode?.nextNode
+        }
+        newNode.nextNode = currentNode?.nextNode
+        currentNode?.nextNode = newNode
+        
+        return newNode
     }
     ///리스트 마지막에 노드 추가
     @discardableResult
