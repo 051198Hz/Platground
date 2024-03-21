@@ -63,6 +63,21 @@ class DoublyLinkedList<T:Equatable>{
         self.head?.prevNode = nil
         return removeNode
     }
+    ///리스트의 특정 위치 노드를 삭제
+    @discardableResult
+    func removeAt(_ idx: Int)->DoublyNode<T>?{
+        if self.head == nil {return nil}
+        var removeNode = self.head
+        for _ in 0..<idx{
+            if removeNode == nil {return nil}
+            removeNode = removeNode?.nextNode
+        }
+        removeNode?.prevNode?.nextNode = removeNode?.nextNode
+        removeNode?.nextNode?.prevNode = removeNode?.prevNode
+        removeNode?.prevNode = nil
+        removeNode?.nextNode = nil
+        return removeNode
+    }
     ///리스트내 특정 위치의 노드 반환
     @discardableResult
     func getNodeAt(_ idx: Int) -> DoublyNode<T>?{
