@@ -4,6 +4,7 @@
 //
 //  Created by Yune gim on 2024/03/20.
 //
+///다음 노드에 대한 포인터를 1가지 가지고 있는 노드
 class Node<T>{
     var data:T?
     var nextNode:Node<T>?
