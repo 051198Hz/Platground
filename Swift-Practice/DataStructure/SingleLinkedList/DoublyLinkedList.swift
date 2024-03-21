@@ -110,9 +110,12 @@ class DoublyLinkedList<T:Equatable>{
         var count = 0
         var currentNode = self.head
         while(currentNode != nil){
+            print("\(currentNode!.data!)",terminator: "")
             count += 1
             currentNode = currentNode?.nextNode
+            if currentNode != nil { print(" -> ",terminator: "")}
         }
+        print()
         return count
     }
 }
