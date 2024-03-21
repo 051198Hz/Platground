@@ -7,6 +7,7 @@
 
 class DoublyLinkedList<T:Equatable>{
     var head: DoublyNode<T>?
+    ///리스트의 처음에 노드 추가
     @discardableResult
     func insertAtFirst(_ newNode: DoublyNode<T>)->DoublyNode<T>{
         if self.head == nil{
