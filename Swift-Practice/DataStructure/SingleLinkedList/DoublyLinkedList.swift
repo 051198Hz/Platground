@@ -90,4 +90,15 @@ class DoublyLinkedList<T:Equatable>{
         }
         return currentNode
     }
+    ///리스트 내의 노드 수를 반환
+    func getNodeCount()->Int{
+        if self.head == nil {return 0}
+        var count = 0
+        var currentNode = self.head
+        while(currentNode != nil){
+            count += 1
+            currentNode = currentNode?.nextNode
+        }
+        return count
+    }
 }
