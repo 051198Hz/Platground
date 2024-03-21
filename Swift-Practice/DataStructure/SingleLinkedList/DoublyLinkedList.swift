@@ -52,6 +52,20 @@ class DoublyLinkedList<T:Equatable>{
         tail?.nextNode = newNode
         return newNode
     }
+    ///리스트의 가장 마지막의 노드를 삭제
+    @discardableResult
+    func removeLast()->DoublyNode<T>?{
+        if self.head == nil {
+            return nil
+        }
+        var tail = self.head
+        while(tail?.nextNode != nil){
+            tail = tail?.nextNode
+        }
+        tail?.prevNode?.nextNode = nil
+        tail?.prevNode = nil
+        return tail
+    }
     ///리스트의 처음 노드를 삭제
     @discardableResult
     func removeFirst()->DoublyNode<T>?{
