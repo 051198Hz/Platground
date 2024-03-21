@@ -7,7 +7,7 @@
 
 class SingleLinkedList<T: Equatable>{
     var head: Node<T>?
-    func getIndexWithData(_ data: T?)-> Int?{
+    func getIndexMatchWith(_ data: T?)-> Int?{
         if self.head == nil {return nil}
         var currentNode = self.head
         var idx = 0
