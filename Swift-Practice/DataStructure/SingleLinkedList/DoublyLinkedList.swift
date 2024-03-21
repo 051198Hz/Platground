@@ -19,4 +19,16 @@ class DoublyLinkedList<T:Equatable>{
         self.head = newNode
         return newNode
     }
+    ///리스트의 처음 노드를 삭제
+    @discardableResult
+    func removeFirst()->DoublyNode<T>?{
+        if self.head == nil{
+            return nil
+        }
+        var removeNode = self.head
+        self.head = self.head?.nextNode
+        self.head?.prevNode = nil
+        return removeNode
+    }
+    
 }
