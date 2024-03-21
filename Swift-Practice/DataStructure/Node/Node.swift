@@ -25,8 +25,21 @@ class DoublyNode<T>{
         self.prevNode = prevNode
         self.nextNode = nextNode
         self.data = data
+        #if DEBUG
+        print("allocated \(self.address): \(self.debugDescription)")
+        #endif
     }
     deinit{
-        print("node deallocated, data: \(String(describing: self.data))")
+        #if DEBUG
+        print("deallocated \(self.address): \(self.debugDescription)")
+        #endif
+    }
+}
+extension DoublyNode: CustomDebugStringConvertible {
+    var address: String{
+        return "\(Unmanaged.passUnretained(self).toOpaque())"
+    }
+    var debugDescription: String{
+        return "\(type(of: self)), data: \(data)"
     }
 }
