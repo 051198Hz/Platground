@@ -5,7 +5,7 @@
 //  Created by Yune gim on 2024/03/20.
 //
 
-class SingleLinkedList<T>{
+class SingleLinkedList<T: Equatable>{
     var head: Node<T>?
     ///리스트의 특정 위치의 노드 반환
     func getNodeAt(_ idx: Int)->Node<T>?{
