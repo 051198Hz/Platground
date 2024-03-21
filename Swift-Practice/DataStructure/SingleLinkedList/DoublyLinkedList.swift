@@ -12,6 +12,7 @@ class DoublyLinkedList<T:Equatable>{
             self.head = newNode
             return newNode
         }
+        self.head?.prevNode = newNode
         newNode.nextNode = self.head
         self.head = newNode
         return newNode
