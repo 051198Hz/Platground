@@ -4,7 +4,7 @@
 //
 //  Created by Yune gim on 2024/03/20.
 //
-
+///싱글 링크드 리스트
 class SingleLinkedList<T: Equatable>{
     var head: Node<T>?
     func getIndexMatchWith(_ data: T?)-> Int?{
