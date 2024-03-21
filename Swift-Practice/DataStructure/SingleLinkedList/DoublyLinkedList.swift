@@ -4,7 +4,7 @@
 //
 //  Created by Yune gim on 2024/03/21.
 //
-
+///더블 링크드 리스트, 특정 노드는 이전 노드와 이후 노드의 정보를 가지고 있다.
 class DoublyLinkedList<T:Equatable>{
     var head: DoublyNode<T>?
     ///리스트의 처음에 노드 추가
