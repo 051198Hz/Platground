@@ -17,10 +17,11 @@ class Node<T>{
     }
 }
 ///이전 노드, 이후 노드의 포인터를 1가지 가지고 있는 노드
-class DoublyNode<T>: Node<T>{
-    var prevNode: Node<T>?
-    init(prevNode: Node<T>? = nil, data: T? = nil, nextNode: Node<T>? = nil) {
-        super.init(data: data, nextNode: nextNode)
+class DoublyNode<T>{
+    var prevNode: DoublyNode<T>?
+    var nextNode: DoublyNode<T>?
+    var data: T?
+    init(prevNode: DoublyNode<T>? = nil, nextNode: DoublyNode<T>? = nil, data: T? = nil) {
         self.prevNode = prevNode
     }
 }
