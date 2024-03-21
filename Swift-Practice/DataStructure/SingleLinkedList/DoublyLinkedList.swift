@@ -72,6 +72,7 @@ class DoublyLinkedList<T:Equatable>{
             if removeNode == nil {return nil}
             removeNode = removeNode?.nextNode
         }
+        if removeNode?.prevNode == nil { self.head = removeNode?.nextNode}
         removeNode?.prevNode?.nextNode = removeNode?.nextNode
         removeNode?.nextNode?.prevNode = removeNode?.prevNode
         removeNode?.prevNode = nil
