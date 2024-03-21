@@ -7,6 +7,17 @@
 
 class SingleLinkedList<T: Equatable>{
     var head: Node<T>?
+    func getIndexWithData(_ data: T?)-> Int?{
+        if self.head == nil {return nil}
+        var currentNode = self.head
+        var idx = 0
+        while(currentNode?.nextNode != nil){
+            if(currentNode?.data == data) {return idx}
+            idx += 1
+            currentNode = currentNode?.nextNode
+        }
+        return nil
+    }
     ///리스트의 특정 위치의 노드 반환
     func getNodeAt(_ idx: Int)->Node<T>?{
         if self.head == nil {return nil}
