@@ -23,5 +23,10 @@ class DoublyNode<T>{
     var data: T?
     init(prevNode: DoublyNode<T>? = nil, nextNode: DoublyNode<T>? = nil, data: T? = nil) {
         self.prevNode = prevNode
+        self.nextNode = nextNode
+        self.data = data
+    }
+    deinit{
+        print("node deallocated, data: \(String(describing: self.data))")
     }
 }
