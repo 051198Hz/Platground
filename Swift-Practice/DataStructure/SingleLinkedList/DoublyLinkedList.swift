@@ -19,6 +19,23 @@ class DoublyLinkedList<T:Equatable>{
         self.head = newNode
         return newNode
     }
+    ///리스트내 특정 위치에 노드 추가
+    @discardableResult
+    func InsertNodeAt(_ newNode:DoublyNode<T>, _ idx: Int) -> DoublyNode<T>?{
+        if self.head == nil { return nil}
+        var currentNode = self.head
+        for _ in 0..<idx{
+            if currentNode == nil {return nil}
+            currentNode = currentNode?.nextNode
+        }
+        if currentNode?.prevNode == nil{
+            self.head = newNode
+        }
+        currentNode?.prevNode = newNode
+        newNode.nextNode = currentNode
+        newNode.prevNode = nil
+        return newNode
+    }
     ///리스트의 가장 마지막에 노드를 추가
     @discardableResult
     func appendNode(_ newNode: DoublyNode<T>)->DoublyNode<T>{
