@@ -118,4 +118,20 @@ class DoublyLinkedList<T:Equatable>{
         print()
         return count
     }
+    func printReverse(){
+        if self.head == nil{
+            print("\(type(of: self)) is empty")
+        }
+        var currentNode = self.head
+        while currentNode?.nextNode != nil{
+            currentNode = currentNode?.nextNode
+        }
+        while currentNode != nil{
+            print("\(currentNode?.data)",terminator: " ")
+            if currentNode?.prevNode != nil{
+                print("->", terminator: " ")
+            }
+            currentNode = currentNode?.prevNode
+        }
+    }
 }
