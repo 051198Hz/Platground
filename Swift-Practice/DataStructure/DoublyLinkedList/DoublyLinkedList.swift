@@ -118,6 +118,7 @@ class DoublyLinkedList<T:Equatable>{
         print()
         return count
     }
+    ///리스트 내의 노드를 역순으로 각 노드의 데이터를 출력
     func printReverse(){
         if self.head == nil{
             print("\(type(of: self)) is empty")
