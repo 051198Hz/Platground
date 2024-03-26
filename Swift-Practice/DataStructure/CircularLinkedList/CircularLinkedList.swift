@@ -45,10 +45,11 @@ class CircularLinkedList<T>{
             tail?.nextNode = newNode
             return
         }
+        self.head?.prevNode = newNode
         self.tail?.nextNode = newNode
         newNode.prevNode = self.tail
         newNode.nextNode = self.head
-        self.head?.prevNode = newNode
+        self.tail = newNode
     }
     ///리스트의 처음 노드를 삭제
     @discardableResult
