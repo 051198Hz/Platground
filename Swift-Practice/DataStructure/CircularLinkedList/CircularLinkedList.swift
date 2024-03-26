@@ -22,4 +22,19 @@ class CircularLinkedList<T>{
         self.head = newNode
         self.tail?.nextNode = newNode
     }
+    //리스트의 특정 위치에 노드 삽입
+    func insertAt(_ idx: Int, _ newNode: DoublyNode<T>)->DoublyNode<T>?{
+        if self.head == nil {return nil}
+        var currentNode = self.head
+        for _ in 0..<idx{
+            if currentNode == nil {return nil}
+            currentNode = currentNode?.nextNode
+        }
+        currentNode?.prevNode?.nextNode = newNode
+        currentNode?.prevNode = newNode
+        newNode.nextNode = currentNode
+        newNode.prevNode = currentNode?.prevNode
+        return newNode
+    }
+
 }
