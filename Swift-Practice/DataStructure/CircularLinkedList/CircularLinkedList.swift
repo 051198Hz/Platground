@@ -50,4 +50,16 @@ class CircularLinkedList<T>{
         newNode.nextNode = self.head
         self.head?.prevNode = newNode
     }
+    ///리스트의 처음 노드를 삭제
+    @discardableResult
+    func removeFirst()->DoublyNode<T>?{
+        if self.head == nil{
+            return nil
+        }
+        var removeNode = self.head
+        self.head = self.head?.nextNode
+        self.head?.prevNode = self.tail
+        self.tail?.nextNode = self.head
+        return removeNode
+    }
 }
