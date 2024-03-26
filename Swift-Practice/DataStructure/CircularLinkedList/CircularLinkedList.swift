@@ -36,5 +36,18 @@ class CircularLinkedList<T>{
         newNode.prevNode = currentNode?.prevNode
         return newNode
     }
-
+    ///리스트의 마지막에 노드 추가
+    func insertAtLast(_ newNode: DoublyNode<T>){
+        if self.head == nil {
+            self.head = newNode
+            self.tail = newNode
+            head?.prevNode = newNode
+            tail?.nextNode = newNode
+            return
+        }
+        self.tail?.nextNode = newNode
+        newNode.prevNode = self.tail
+        newNode.nextNode = self.head
+        self.head?.prevNode = newNode
+    }
 }
