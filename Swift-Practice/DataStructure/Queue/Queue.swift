@@ -9,9 +9,9 @@ class Stack<T>{
     class Node{
         var data: T?
     }
-    var capacity: Int
-    fileprivate var top: Int
-    fileprivate var nodes: [Node]?
+    fileprivate(set) var capacity: Int
+    fileprivate(set) var top: Int
+    fileprivate(set) var nodes: [Node]?
     init(_ size: Int){
         self.nodes = []
         self.nodes?.reserveCapacity(size)
