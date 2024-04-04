@@ -12,6 +12,9 @@ struct Stack<T>{
     var isEmpty: Bool{
         return stack.isEmpty
     }
+    var top: T?{
+        return stack.last
+    }
     private var stack: [T] = []
     ///새 노드를 스택 위에 올림
     mutating func push(_ data: T){
