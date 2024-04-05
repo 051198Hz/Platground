@@ -1,4 +1,6 @@
 #  Swift에 대해 현재까지 학습한 내용
+## 알고리즘
+- [중위표기법을 후위표기법으로 변환](https://github.com/051198Hz/Swift-Practice/blob/ed102e0ae4769905f41baaf03022f5467a891d35/Swift-Practice/Algorithm/Postfix/Postfix.swift)
 ## 자료구조
 - [링크드 리스트](https://github.com/051198Hz/Swift-Practice/blob/main/Swift-Practice/DataStructure/SingleLinkedList/SingleLinkedList.swift)
 - [더블리 링크드 리스트](https://github.com/051198Hz/Swift-Practice/blob/main/Swift-Practice/DataStructure/DoublyLinkedList/DoublyLinkedList.swift)
