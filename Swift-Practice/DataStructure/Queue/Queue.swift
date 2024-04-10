@@ -8,20 +8,26 @@
 import Foundation
 
 struct Queue<T>{
-    fileprivate var nodes = Array<T>()
+    fileprivate var inbox: [T] = []
+    fileprivate var outbox: [T] = []
     var front: T?{
-        return nodes.first
+        return outbox.isEmpty ? inbox.first : outbox.last
     }
     var rear: T?{
-        return nodes.last
+        if outbox.isEmpty { return inbox.last }
+        return outbox.first
     }
     var count: Int{
-        return nodes.count
+        return outbox.count + inbox.count
     }
     mutating func enqueue(element: T){
-        self.nodes.append(element)
+        inbox.append(element)
     }
-    mutating func dequeue()->T{
-        return self.nodes.removeFirst()
+    mutating func dequeue()->T?{
+        if outbox.isEmpty{
+            outbox = inbox.reversed()
+            inbox.removeAll()
+        }
+        return outbox.popLast()
     }
 }
