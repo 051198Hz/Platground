@@ -26,6 +26,8 @@ struct Queue<T>{
     mutating func dequeue()->T?{
         if outbox.isEmpty{
             outbox = inbox.reversed()
+            //Array.removeAll()은 keepingCapacity가 false일 때, O(1)의 Performance를 갖는다.
+            //https://stackoverflow.com/questions/54133045/performance-array-removeall-vs
             inbox.removeAll()
         }
         return outbox.popLast()
