@@ -18,4 +18,7 @@ struct Queue<T>{
     var count: Int{
         return nodes.count
     }
+    mutating func enqueue(element: T){
+        self.nodes.append(element)
+    }
 }
