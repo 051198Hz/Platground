@@ -21,4 +21,7 @@ struct Queue<T>{
     mutating func enqueue(element: T){
         self.nodes.append(element)
     }
+    mutating func dequeue()->T{
+        return self.nodes.removeFirst()
+    }
 }
