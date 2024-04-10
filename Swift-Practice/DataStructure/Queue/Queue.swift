@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Queue<T>{
+struct Queue<T>{
     fileprivate var nodes = Array<T>()
     var front: T?{
         return nodes.first
