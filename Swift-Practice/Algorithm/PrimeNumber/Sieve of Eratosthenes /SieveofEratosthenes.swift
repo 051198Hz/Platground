@@ -11,14 +11,18 @@ extension PrimeNumber{
     ///     let input = readLine()!.split(separator: " " ).map { Int(String($0))! }
     ///     getPrimeNumber(start: input[0], end: input[1])
     ///
-    static func getPrimeNumber(start: Int, end: Int){
+    @discardableResult
+    static func getPrimeNumber(start: Int, end: Int, flag: Bool = false)->Int{
         let start = start == 1 ? 2 : start
         if end <= 3{
+            var count = Int.zero
             for i in start...end{
-                print(i)
+                count += 1
+                if flag { print(i) }
             }
-            return
+            return count
         }
+        
         var numbers = Array(start...end)
         let end = Int(Double(end).squareRoot())
         
@@ -27,6 +31,7 @@ extension PrimeNumber{
                 !(($0 != i) && ($0 % i == 0))
             }
         }
-        numbers.forEach{ print($0) }
+        if flag { numbers.forEach{ print($0) } }
+        return numbers.count
     }
 }
