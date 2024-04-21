@@ -50,3 +50,40 @@ struct Queue<T>{
         return inbox.popLast()
     }
 }
+
+struct QueueSingleArray<T>{
+    fileprivate var inbox: [T] = []
+    fileprivate var head = 0
+    init(inbox: [T] = [], head: Int = 0) {
+        self.inbox = inbox
+        self.head = head
+    }
+    var isEmpty: Bool{
+        return inbox.count - head <= 0
+    }
+    var front: T?{
+        if isEmpty {return nil}
+        let ret = inbox[head]
+        return ret
+    }
+    var rear: T?{
+        if isEmpty {return nil} // 이렇지 않으면, inbox.count == head여도 inbox의 마지막 값을 반환하고있음
+        return inbox.last
+    }
+    var count: Int{
+        return inbox.count - head
+    }
+    mutating func enqueue(element: T){
+        inbox.append(element)
+    }
+    mutating func dequeue()->T?{
+        if isEmpty {return nil}
+        let ret = inbox[head]
+        head += 1
+        return ret
+    }
+    mutating func popLast()->T?{
+        if isEmpty {return nil}
+        return inbox.popLast()
+    }
+}
